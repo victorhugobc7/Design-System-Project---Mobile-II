@@ -15,7 +15,7 @@ class BottomTabBar extends StatelessWidget {
   const BottomTabBar._({super.key, required this.viewModel, required this.currentIndex, this.delegate}); // Atualizei aqui
 
   static Widget instantiate({required BottomTabBarViewModel viewModel, required int currentIndex}) {
-    return BottomTabBar._(viewModel: viewModel, currentIndex: currentIndex, delegate: delegate); // Atualizei aqui
+    return BottomTabBar._(viewModel: viewModel, currentIndex: currentIndex,); // Atualizei aqui
   }
 
   @override

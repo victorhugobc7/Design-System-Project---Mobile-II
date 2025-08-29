@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../Components/BottomTabBar/bottom_tab_bar.dart';
 import '../../Components/BottomTabBar/bottom_tab_bar_view_model.dart';
 
-class BottomTabBarPage extends StatefulWidget implements BottomTabBarDelegate {
+class BottomTabBarPage extends StatefulWidget {
   const BottomTabBarPage({super.key});
 
   @override
@@ -46,17 +46,9 @@ class _BottomTabBarPageState extends State<BottomTabBarPage> {
               label: "Profile",
             )
           ],
-          },
         ),
         currentIndex: actualIndex,
-        delegate: this
       ),
     );
-  }
-  @override
-  void onIndexChanged(int currentIndex){
-    setState(){
-      actualIndex = currentIndex;
-    }
   }
 }

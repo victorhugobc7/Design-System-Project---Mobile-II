@@ -80,6 +80,5 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
 class BottomNavigationBarController {
   final ActionBottomBarViewModel viewModel;
-
   BottomNavigationBarController(this.viewModel);
 }

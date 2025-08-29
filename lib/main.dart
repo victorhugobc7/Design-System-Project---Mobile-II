@@ -32,6 +32,7 @@ class ButtonScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ,
       appBar: AppBar(
         title: const Text('Design System Sample App'),
       ),
