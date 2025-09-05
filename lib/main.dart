@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/DesignSystem/shared/colors.dart';
 import '../DesignSystem/Samples/actionButtonSampleScreen/action_button_sample_screen.dart';
 import '../DesignSystem/Samples/bottomTabBarSampleScreen/bottom_tab_bar_sample_screen.dart';
 import '../DesignSystem/Samples/inputFieldSampleScreen/input_field_sample_screen.dart';
@@ -32,7 +33,7 @@ class ButtonScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ,
+      backgroundColor: darkPrimaryBaseColorLight,
       appBar: AppBar(
         title: const Text('Design System Sample App'),
       ),
