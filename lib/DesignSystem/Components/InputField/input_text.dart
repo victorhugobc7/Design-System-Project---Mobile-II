@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/DesignSystem/shared/colors.dart';
+import 'package:untitled/DesignSystem/shared/spacing.dart';
+import 'package:untitled/DesignSystem/shared/styles.dart';
 import 'input_text_view_model.dart';
 
 class StyledInputField extends StatefulWidget {
@@ -47,7 +50,7 @@ class StyledInputFieldState extends State<StyledInputField> {
   @override
   Widget build(BuildContext context) {
     InputDecoration decoration = InputDecoration(
-      contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+      contentPadding: const EdgeInsets.symmetric(vertical: extraSmall, horizontal: 24),
       filled: true,
       suffixIcon: widget.viewModel.password
           ? IconButton(
@@ -55,38 +58,39 @@ class StyledInputFieldState extends State<StyledInputField> {
               onPressed: togglePasswordVisibility,
             )
           : widget.viewModel.suffixIcon,
-      fillColor: widget.viewModel.isEnabled ? Colors.white : Colors.grey.shade400,
+      fillColor: widget.viewModel.isEnabled ? white : gray_100,
       labelText: widget.viewModel.placeholder.isNotEmpty ? widget.viewModel.placeholder : null,
-      labelStyle: const TextStyle(color: Colors.black),
+      labelStyle: labelTextStyle,
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4),
-        borderSide: const BorderSide(color: Colors.black),
+        borderSide: const BorderSide(color: gray_600),
       ),
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4),
-        borderSide: const BorderSide(color: Colors.red),
+        borderSide: const BorderSide(color: red_error),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4),
-        borderSide: const BorderSide(color: Colors.black),
+        borderSide: const BorderSide(color: blue_500),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4),
-        borderSide: const BorderSide(color: Colors.black),
+        borderSide: const BorderSide(color: gray_600),
       ),
       disabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4),
-        borderSide: const BorderSide(color: Colors.grey),
+        borderSide: const BorderSide(color: gray_500),
       ),
       errorText: errorMsg,
     );
 
-    return TextFormField(
-      controller: widget.viewModel.controller,
-      obscureText: obscureText,
-      decoration: decoration,
-      style: const TextStyle(color: Colors.black),
-      enabled: widget.viewModel.isEnabled,
+
+    return Row(
+      children: [
+      widget.viewModel.title?.isNotEmpty != null ? Text(widget.viewModel.title as String, style: labelTextStyle) : SizedBox(),
+      TextFormField(
+        controller: widget.viewModel.controller,
+          obscureText: obscureText,
+          decoration: decoration,
+          style: labelTextStyle,
+          enabled: widget.viewModel.isEnabled,
+        ),
+      ],
     );
   }
 }

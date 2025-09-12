@@ -136,24 +136,51 @@ const TextStyle navbarLargeTitle = TextStyle(
 
 //All below are the new ones, styles from above have been deprecated and should not be used.
 //To do: Add Titles styles from 1 to 3
+const TextStyle title1 = TextStyle(
+  fontFamily: primaryFont,
+  fontWeight: FontWeight.bold,
+  fontSize: 56,
+  height: 1.5,
+);
+
+const TextStyle title2 = TextStyle(
+  fontFamily: primaryFont,
+  fontWeight: FontWeight.bold,
+  fontSize: 48,
+  height: 1.5,
+);
+
+const TextStyle title3 = TextStyle(
+  fontFamily: primaryFont,
+  fontWeight: FontWeight.bold,
+  fontSize: 32,
+  height: 1.5,
+);
 
 const TextStyle title4 = TextStyle(
     fontFamily: primaryFont,
     fontWeight: FontWeight.bold,
     fontSize: 24,
-    height: 36,
+    height: 1.5,
+);
+
+const TextStyle labelTextStyle = TextStyle(
+  fontFamily: primaryFont,
+  fontWeight: FontWeight.bold,
+  fontSize: 14,
+  height: 1.5,
 );
 
 const TextStyle bodyLarge = TextStyle(
     fontFamily: primaryFont,
     fontWeight: FontWeight.normal,
     fontSize: 18,
-    height: 27,
+    height: 1.5,
 );
 
 const TextStyle bodyRegular= TextStyle(
   fontFamily: primaryFont,
   fontWeight: FontWeight.normal,
   fontSize: 16,
-  height: 24,
+  height: 1.5,
 );

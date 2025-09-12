@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class InputTextViewModel {
+  final bool hasTitle;
   final TextEditingController controller;
   final String placeholder;
+  final String? title;
   bool password;
   final Widget? suffixIcon;
   final bool isEnabled;
@@ -15,6 +17,8 @@ class InputTextViewModel {
     required this.password,
     this.suffixIcon,
     this.isEnabled = true,
+    this.hasTitle = false,
+    this.title,
     this.validator,
     this.togglePasswordVisibility,
   });

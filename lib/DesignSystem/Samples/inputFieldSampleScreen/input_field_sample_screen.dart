@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/DesignSystem/shared/styles.dart';
 import '../../Components/InputField/input_text.dart';
 import '../../Components/InputField/input_text_view_model.dart';
 
@@ -23,58 +24,23 @@ class InputFieldPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const Text('First Box', style: labelTextStyle,),
             StyledInputField.instantiate(
               viewModel: InputTextViewModel(
-                controller: controller1,
-                placeholder: 'Label',
-                password: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Esse campo é obrigatório';
-                  } else if (!RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
-                    return 'Somente letras são permitidas!';
+                  controller: passwordController1,
+                  placeholder: '',
+                  title: 'Tests',
+                  password: true,
+                  suffixIcon: const Icon(Icons.remove_red_eye),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Esse campo é obrigatório';
+                    }
+                    return null;
                   }
-                  return null;
-                }
               ),
-            ),
-            const SizedBox(height: 20,),
-            StyledInputField.instantiate(
-              viewModel: InputTextViewModel(
-                controller: passwordController1,
-                placeholder: 'Label',
-                password: true,
-                suffixIcon: const Icon(Icons.remove_red_eye),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Esse campo é obrigatório';
-                  }
-                  return null;
-                }
-              ),
-            ),
-            const SizedBox(height: 20,),
-            const Text("Disabled"),
-            const SizedBox(height: 20,),
-            StyledInputField.instantiate(
-              viewModel: InputTextViewModel(
-                controller: controller2,
-                placeholder: 'Label',
-                password: false,
-                isEnabled: false,
-              ),
-            ),
-            const SizedBox(height: 20,),
-            StyledInputField.instantiate(
-              viewModel: InputTextViewModel(
-                controller: passwordController2,
-                placeholder: 'Label',
-                password: false,
-                isEnabled: false,
-                suffixIcon: const Icon(Icons.remove_red_eye)
-              ),
-            ),
-          ],
+            )
+            ]
         ),
       ),
     );

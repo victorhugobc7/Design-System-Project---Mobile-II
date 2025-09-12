@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/DesignSystem/shared/colors.dart';
+import 'package:untitled/DesignSystem/shared/styles.dart';
 import '../DesignSystem/Samples/actionButtonSampleScreen/action_button_sample_screen.dart';
 import '../DesignSystem/Samples/bottomTabBarSampleScreen/bottom_tab_bar_sample_screen.dart';
 import '../DesignSystem/Samples/inputFieldSampleScreen/input_field_sample_screen.dart';
@@ -33,9 +34,9 @@ class ButtonScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: darkPrimaryBaseColorLight,
+      backgroundColor: white,
       appBar: AppBar(
-        title: const Text('Design System Sample App'),
+        title: const Text('Design System Sample App', style: bodyLarge),
       ),
       body: Center(
         child: SizedBox(
@@ -63,7 +64,7 @@ class ButtonScreen extends StatelessWidget {
           MaterialPageRoute(builder: (context) => scene),
         );
       },
-      child: Text(text),
+      child: Text(text, style: bodyLarge,),
     );
   }
 }

@@ -5,9 +5,6 @@ import '../../Components/Cards/ActionCard/action_card_view_model.dart';
 
 
 class cardPage extends StatelessWidget {
-  final const cardPage({super.key});
-
-  var ActionCard actionCard = ActionCard.instantiate(viewModel: viewModel);
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +12,7 @@ class cardPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("card page Demo"),
       ),
-      body: actionCard,
-      )
+      body: Text("Hi"),
     );
   }
 }
