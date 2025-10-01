@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'tab_view_model.dart';
 import '../../shared/colors.dart';
+import '../../shared/fonts.dart';
+
 
 class TabComponent extends StatefulWidget {
   final TabViewModel tabViewModel;
@@ -49,9 +51,16 @@ class _TabComponentState extends State<TabComponent>
         TabBar(
           controller: tabController,
           tabs: widget.tabViewModel.tabs,
-          indicatorColor: lightPrimaryBrandColor,
-          labelColor: lightPrimaryBrandColor,
-          unselectedLabelColor: Colors.grey,
+          indicatorColor: yellow_marigold,
+          labelStyle: TextStyle(
+            color: primaryInk,
+            fontWeight: FontWeight.bold,
+            fontFamily: primaryFont,
+          ),
+          unselectedLabelStyle: TextStyle(
+            color: primaryInk,
+            fontFamily: primaryFont,
+          ),
         ),
       ],
     );

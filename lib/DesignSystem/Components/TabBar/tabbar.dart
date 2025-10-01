@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/DesignSystem/shared/colors.dart';
 import 'tabbar_view_model.dart';
+import '../../shared/fonts.dart';
 
 class CustomTabBar extends StatefulWidget {
   final TabBarViewModel viewModel;
@@ -7,7 +9,7 @@ class CustomTabBar extends StatefulWidget {
 
   const CustomTabBar._(this.viewModel, this.onTabSelected);
 
-  static Widget instantiate(TabBarViewModel viewModel, Function(int) onTabSelected) {
+  static Widget instantiate(TabBarViewModel viewModel, Function(int) onTabSelected,) {
     return CustomTabBar._(viewModel, onTabSelected);
   }
 
@@ -16,7 +18,7 @@ class CustomTabBar extends StatefulWidget {
 }
 
 class _CustomTabBarState extends State<CustomTabBar> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
       children: List.generate(widget.viewModel.tabTitles.length, (index) {
         final bool isSelected = _selectedIndex == index;
         return GestureDetector(
+          behavior: HitTestBehavior.opaque,
           onTap: () {
             setState(() {
               _selectedIndex = index;
@@ -40,14 +43,15 @@ class _CustomTabBarState extends State<CustomTabBar> {
                   widget.viewModel.tabTitles[index],
                   textAlign: TextAlign.center, // Centraliza o texto horizontalmente
                   style: TextStyle(
-                    color: isSelected ? Color(0xFFF8D247) : Colors.white,
+                    color: isSelected ? primaryInk : primaryInk,
                     fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                    fontFamily: primaryFont,
                   ),
                 ),
                 Container(
                   height: 4, // Mantém a altura da linha sempre, independente de estar selecionada ou não
                   width: double.infinity, // Ocupa toda a largura do espaço da aba
-                  color: isSelected ? Color(0xFFF8D247) : Colors.transparent, // Cor ou transparente
+                  color: isSelected ? yellow_marigold : Colors.transparent, // Cor ou transparente
                 ),
               ],
             ),

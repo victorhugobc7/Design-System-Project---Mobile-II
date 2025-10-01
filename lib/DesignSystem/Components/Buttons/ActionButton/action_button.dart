@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'action_button_view_model.dart';
 import '../../../shared/colors.dart';
 import '../../../shared/styles.dart';
+import '../../../shared/spacing.dart';
 
 class ActionButton extends StatelessWidget {
   final ActionButtonViewModel viewModel;
@@ -14,47 +15,88 @@ class ActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double horizontalPadding = 32;
-    double verticalPadding = 12;
-    double iconSize = 24;
-    TextStyle buttonTextStyle = button3Semibold;
-    Color buttonColor = lightPrimaryBrandColor;
+    double horizontalPadding = large;
+    double verticalPadding = small;
+    double iconSize = large;
+    TextStyle buttonTextStyle = buttonStyle;
+    Color buttonColor = blue_400;
+    Color iconBackgroundColor = blue_700;
 
     switch (viewModel.size) {
       case ActionButtonSize.large:
-        buttonTextStyle = button1Bold;
-        iconSize = 24;
+        buttonTextStyle = buttonStyle;
+        iconSize = large;
         break;
       case ActionButtonSize.medium:
-        buttonTextStyle = button2Semibold;
-        iconSize = 24;
+        buttonTextStyle = buttonStyle;
+        iconSize = large;
         break;
       case ActionButtonSize.small:
-        buttonTextStyle = button3Semibold;
+        buttonTextStyle = buttonStyle;
         horizontalPadding = 16;
-        iconSize = 16;
+        iconSize = small;
         break;
-      default:
     }
 
     switch (viewModel.style) {
       case ActionButtonStyle.primary:
-        buttonColor = lightPrimaryBrandColor;
+        buttonColor = blue_400;
+        iconBackgroundColor = blue_700;
         break;
       case ActionButtonStyle.secondary:
-        buttonColor = lightSecondaryBrandColor;
+        buttonColor = navy_700;
+        iconBackgroundColor = navy_700;
         break;
       case ActionButtonStyle.tertiary:
-        buttonColor = lightTertiaryBrandColor;
+        buttonColor = mint_dark;
+        iconBackgroundColor = mint_dark;
         break;
-      default:
     }
 
-    return ElevatedButton(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ElevatedButton(
+                  onPressed: viewModel.onPressed,
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: buttonColor,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+                      textStyle: buttonTextStyle,
+                      padding: EdgeInsets.symmetric(
+                          vertical: verticalPadding,
+                          horizontal: horizontalPadding
+                          ),
+                      ),
+                  child: Text(viewModel.text, style: buttonTextStyle,)
+                  ),
+          Stack(
+              children: [
+                Container(
+                  width: iconSize,
+                  height: iconSize,
+                  color: iconBackgroundColor,
+                  padding: EdgeInsets.symmetric(
+                      vertical: verticalPadding,
+                      horizontal: horizontalPadding
+                  ),
+                ),
+                Icon(
+                  viewModel.icon,
+                  size: iconSize,
+                  color: white,
+                ),
+              ]
+          ),
+    ]
+    );
+
+
+      /* ElevatedButton(
       onPressed: viewModel.onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: buttonColor,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
         textStyle: buttonTextStyle,
         padding: EdgeInsets.symmetric(
           vertical: verticalPadding,
@@ -64,14 +106,24 @@ class ActionButton extends StatelessWidget {
       child: viewModel.icon !=null ?
       Row(
         children: [
-          Icon(
-            viewModel.icon,
-            size: iconSize,
+          Stack(
+            children: [
+              Container(width: iconSize, height: iconSize, color: iconBackgroundColor,),
+              Icon(
+                viewModel.icon,
+                size: iconSize,
+                color: white,
+              ),
+            ],
           ),
-          Text(viewModel.text)
+          Text(viewModel.text, style: buttonTextStyle,)
         ],
       ) :
-      Text(viewModel.text),
+      Text(viewModel.text, style: buttonTextStyle),
     );
+  }
+
+
+       */
   }
 }

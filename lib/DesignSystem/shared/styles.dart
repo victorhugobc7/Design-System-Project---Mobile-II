@@ -184,3 +184,29 @@ const TextStyle bodyRegular= TextStyle(
   fontSize: 16,
   height: 1.5,
 );
+
+const TextStyle baseHyperlink= TextStyle(
+  fontFamily: primaryFont,
+  fontWeight: FontWeight.bold,
+  fontSize: 16,
+  height: 1.5,
+  decoration: TextDecoration.underline,
+  color: blue_500,
+);
+
+const TextStyle smallHyperlink= TextStyle(
+  fontFamily: primaryFont,
+  fontWeight: FontWeight.bold,
+  fontSize: 14,
+  height: 1.5,
+  decoration: TextDecoration.underline,
+  color: blue_500,
+);
+
+const TextStyle buttonStyle = TextStyle(
+  fontFamily: primaryFont,
+  fontWeight: FontWeight.bold,
+  fontSize: 14,
+  height: 1.5,
+  color: white,
+);

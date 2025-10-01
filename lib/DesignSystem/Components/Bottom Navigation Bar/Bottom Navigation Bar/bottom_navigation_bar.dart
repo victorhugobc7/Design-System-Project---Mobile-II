@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/DesignSystem/shared/spacing.dart';
 import 'bottom_navigation_bar_view_model.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
@@ -67,13 +68,13 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   double _getFontSize(ActionBottomBarOptionSize size) {
     switch (size) {
       case ActionBottomBarOptionSize.large:
-        return 20;
+        return large;
       case ActionBottomBarOptionSize.medium:
-        return 16;
+        return medium;
       case ActionBottomBarOptionSize.small:
-        return 12;
+        return small;
       default:
-        return 16;
+        return medium;
     }
   }
 }

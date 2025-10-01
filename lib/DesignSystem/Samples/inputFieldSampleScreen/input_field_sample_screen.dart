@@ -29,7 +29,6 @@ class InputFieldPage extends StatelessWidget {
               viewModel: InputTextViewModel(
                   controller: passwordController1,
                   placeholder: '',
-                  title: 'Tests',
                   password: true,
                   suffixIcon: const Icon(Icons.remove_red_eye),
                   validator: (value) {

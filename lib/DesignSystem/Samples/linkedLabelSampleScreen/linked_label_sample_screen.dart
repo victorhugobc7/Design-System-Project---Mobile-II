@@ -22,7 +22,9 @@ class LinkedLabelPage extends StatelessWidget {
               viewModel: LinkedLabelViewModel(
                 fullText: "texto com link",
                 linkedText: "com link",
-                onLinkTap: () {},
+                onLinkTap: () {
+
+                },
               ),
             )
           ],

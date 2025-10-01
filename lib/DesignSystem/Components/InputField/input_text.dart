@@ -13,9 +13,46 @@ class StyledInputField extends StatefulWidget {
   StyledInputFieldState createState() => StyledInputFieldState();
 
   static Widget instantiate({required InputTextViewModel viewModel}) {
-    return StyledInputField._(viewModel: viewModel);
+
+    Widget titleWidget = viewModel.title?.isNotEmpty == true
+        ? Padding(
+        padding: const EdgeInsets.only(right: medium),
+        child: Text(viewModel.title as String, style: labelTextStyle)
+    )
+        : const SizedBox.shrink();
+
+    Widget inputField = StyledInputField._(viewModel: viewModel);
+
+    // 3. Return a Row, but wrap the inputField in Expanded
+    //    The Row will be vertically centered, which might not be ideal
+    //    for label alignment. See alternative below.
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center, // Align items vertically in the Row
+      children: [
+        // The title takes up only the space it needs
+        titleWidget,
+        // The input field takes up all the remaining space
+        Expanded(
+          child: inputField,
+        ),
+      ],
+    );
   }
 }
+
+class TitleField extends State<StyledInputField>{
+
+  @override
+  Widget build(BuildContext context) {
+
+    Widget titleWidget = widget.viewModel.title?.isNotEmpty == true ?
+      Text(widget.viewModel.title as String, style: labelTextStyle)
+          :
+      SizedBox();
+
+    return titleWidget;
+    }
+  }
 
 class StyledInputFieldState extends State<StyledInputField> {
   late bool obscureText;
@@ -80,17 +117,12 @@ class StyledInputFieldState extends State<StyledInputField> {
     );
 
 
-    return Row(
-      children: [
-      widget.viewModel.title?.isNotEmpty != null ? Text(widget.viewModel.title as String, style: labelTextStyle) : SizedBox(),
-      TextFormField(
-        controller: widget.viewModel.controller,
-          obscureText: obscureText,
-          decoration: decoration,
-          style: labelTextStyle,
-          enabled: widget.viewModel.isEnabled,
-        ),
-      ],
+    return TextFormField(
+      controller: widget.viewModel.controller,
+      obscureText: obscureText,
+      decoration: decoration,
+      style: labelTextStyle,
+      enabled: widget.viewModel.isEnabled,
     );
   }
 }

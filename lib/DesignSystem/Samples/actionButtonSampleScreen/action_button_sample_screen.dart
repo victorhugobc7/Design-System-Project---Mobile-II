@@ -27,7 +27,8 @@ class ActionButtonPage extends StatelessWidget {
                       ActionButtonViewModel(
                         size: ActionButtonSize.large,
                         style: ActionButtonStyle.primary,
-                        text: 'Large',
+                        icon: Icons.rocket_launch_rounded,
+                        text: 'PRIMARY BUTTON',
                         onPressed: () {}
                       )
                     ),

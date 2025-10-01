@@ -23,8 +23,8 @@ class BottomTabBar extends StatelessWidget {
     return BottomNavigationBar(
       items: viewModel.bottomTabs,
       type: BottomNavigationBarType.fixed,
-      selectedItemColor: darkPrimaryBrandColor,
-      unselectedItemColor: lightPrimaryBaseColorLight,
+      selectedItemColor: yellow_marigold,
+      unselectedItemColor: primaryInk,
       showUnselectedLabels: true,
       currentIndex: currentIndex,
       onTap: delegate?.onIndexChanged,
